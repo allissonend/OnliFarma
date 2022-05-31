@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<head>
+  <title>Tela de cadastro OnliFarma</title>
+  <link rel="shortcut icon" type="" href="imagens/favicon7.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+<body>
+
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="panel-heading"><h2 style="color: white">Cadastro de Novo Usuário<h2></div>
+    <div class="panel-body">
+  </nav>
+  <div>
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="Nome">Nome <h11>*</h11></label>  
+      <div class="col-md-4">
+      <input id="Nome" name="Nome" placeholder="Digite seu Nome" class="form-control input-md" required="" type="text">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="Nome">CPF <h11>*</h11></label>  
+      <div class="col-md-2">
+      <input id="cpf" name="cpf" placeholder="000.000.000-00" class="form-control input-md" required="" type="text" maxlength="11" pattern="[0-9]+$">
+      </div>
+      
+      <label class="col-md-1 control-label" for="Nome">Nascimento<h11>*</h11></label>  
+      <div class="col-md-2">
+      <input id="dtnasc" name="dtnasc" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+    </div>
+
+      <label class="col-md-1 control-label" for="radios">Sexo <h11>*</h11></label>
+      <div class="col-md-4"> 
+        <label required="" class="radio-inline" for="radios-0" >
+          <input name="sexo" id="sexo" value="feminino" type="radio" required>
+          Feminino
+        </label> 
+        <label class="radio-inline" for="radios-1">
+          <input name="sexo" id="sexo" value="masculino" type="radio">
+          Masculino
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
+      <div class="col-md-2">
+        <div class="input-group">
+          <input id="prependedtext" name="prependedtext" class="form-control" placeholder="00 00000-0000" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+          OnKeyPress="formatar('## #####-####', this)">
+        </div>
+      </div>
+     </div> 
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="prependedtext">E-mail <h11>*</h11></label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input id="prependedtext" name="prependedtext" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="prependedtext">Senha <h11>*</h11></label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input id="prependedtext" name="senha" class="form-control" placeholder="" required="" type="password">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="prependedtext">Confirmar Senha <h11>*</h11></label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input id="prependedtext" name="senha" class="form-control" placeholder="" required="" type="password">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
+      <div class="col-md-2">
+        <input id="cep" name="cep" placeholder="00000-000" class="form-control input-md" required="" value="" type="search" maxlength="8" pattern="[0-9]+$">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="prependedtext">Endereço </label>
+      <div class="col-md-4">
+          <span class="input-group-addon">Rua </span>
+          <input id="rua" name="rua" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+        </div>
+        
+      </div>
+        <div class="col-md-2">
+          <span class="input-group-addon">Nº </span>
+          <input id="numero" name="numero" class="form-control" placeholder="" required=""  type="text">
+        </div>
+      </div>
+      <div class="col-md-3 col-md-4  ">
+          <span class="input-group-addon">Bairro</span>
+          <input id="bairro" name="bairro" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="prependedtext"></label>
+      <div class="col-md-4">
+          <span class="input-group-addon">Cidade</span>
+          <input id="cidade" name="cidade" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+        </div>
+        
+      </div>
+       <div class="col-md-2">
+          <span class="input-group-addon">Estado</span>
+          <input id="estado" name="estado" class="form-control" placeholder="" required=""  readonly="readonly" type="text">
+        </div>
+      </div>
+      <br>
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="Cadastrar"></label>
+     <div class="col-md-8">
+        <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
+        <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+        <button id="Voltar" name="Voltar" class="btn btn-link" style="" type=""><a href="carrinho.html" class="icons-btn d-inline-block bag">Voltar</a></button>
+      </div>
+     </div>
+    </div>
+  </div>
+
+</form>
+
+</body>
+</html>
